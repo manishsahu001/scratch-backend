@@ -4,10 +4,11 @@ const app = express();
 
 // Middleware to parse incoming request body to JSON in entire application.
 app.use(express.json());
-// Centralized error handler
 
 // Registering the user router
-app.use("/api", userRouter);
+app.use("/api/user", userRouter);
+
+// Centralized error handler
 app.use((err, req, res, next) => {
   return res
     .status(err.statusCode || 500)
